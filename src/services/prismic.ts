@@ -1,6 +1,6 @@
 import * as prismic from "@prismicio/client";
 
-export function getPrismicClient() {
+export function getPrismicClient(req?: unknown) {
   {
     access_token: process.env.PRISMIC_ACCESS_TOKEN;
   }
