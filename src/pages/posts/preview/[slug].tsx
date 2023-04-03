@@ -7,6 +7,7 @@ import Link from "next/link";
 import { useEffect } from "react";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
+import { Session } from "next-auth";
 
 interface PropsPostPrevie {
   post: {
@@ -16,9 +17,13 @@ interface PropsPostPrevie {
     updateAt: string;
   };
 }
-
+interface SessionProps {
+  data: Session & {
+    activeSubscription?: any;
+  };
+}
 export default function PostPreview({ post }: PropsPostPrevie) {
-  const { data: session } = useSession();
+  const { data: session }: SessionProps = useSession();
   const router = useRouter();
 
   useEffect(() => {
